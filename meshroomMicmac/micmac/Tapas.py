@@ -49,6 +49,48 @@ class Tapas(node.MicmacNode):
             uid=[0],
             value="",
         ),
+          #-----------modification-------------
+        desc.BoolParam(
+            name='setFocs',
+            label='set Focs',
+            description="Set Focs",
+            uid=[0],
+            value=False,
+            group='',
+            advanced=True,
+        ),
+        
+         desc.GroupAttribute(
+            name='Focs',
+            label='Focs',
+            description="focal length inside range [A,B] (A,B in mm)",
+            enabled=lambda node: node.setFocs.value,
+            brackets='[]',
+            joinChar=',',
+            advanced=True,
+            groupDesc=[
+            desc.IntParam(
+                name="min",
+                label="Min",
+                description="min.",
+                value=20,
+                range=(0, 5200, 1),
+                uid=[0],
+            ),  
+            
+            desc.IntParam(
+            name="max",
+            label="Max",
+            description="max.",
+            value=30,
+            range=(0, 5200, 1),
+            uid=[0],
+            ),
+        ]),
+        
+#-----------modification-------------
+
+        
         desc.File(
             name='SH',
             label='Homol Directory',
