@@ -74,16 +74,15 @@ class CenterBascule(node.MicmacNode):
             uid=[0],
             value=False,
         ),
-        
-        
-      #  desc.StringParam(
-      #      name='ForceSol',
-      #      label='Force Sol',
-      #      description="To Force Sol from existing solution (xml file)",
-      #      uid=[0],
-      #      value="",
-      #      advanced=True,
-      #  ),
+        desc.FloatParam(
+            name='ForceVert',
+            label='Force Vert',
+            description="Weight for forcing Axe of camera to vertical",
+            uid=[0],
+            value=0.0,
+            range=(-float('inf'), float('inf'), 0.01),
+            advanced=True,
+        ),
     ]
 
     outputs = [
