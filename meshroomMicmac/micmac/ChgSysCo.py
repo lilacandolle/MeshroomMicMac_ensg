@@ -48,26 +48,29 @@ class ChgSysCo(node.MicmacNode):
             uid=[0],
             value="",
         ),
-        desc.StringParam(
+        desc.StringParam(   #this input gives the name or the directory of the output orientation file
             name='Out',
             label='Output Name',
             description="Directory of Output Orientation",
             value="",
             uid=[0],
         ),
-          # desc.StringParam(
-          #           name='ForceSol',
-          #           label='Force Sol',
-          #           description="To Force Sol from existing solution (xml file)",
-          #           uid=[0],
-          #           value="",
-          #           advanced=True,
-          #       ),
+        
+        ###Paramètre avancé que j'ai ajouté par la suite
+        desc.BoolParam( 
+            name='FR',
+            label='F R',
+            description="Force orientation matrix to be pure rotation (Def = true)",
+            uid=[0],
+            value=False,
+            advanced=True,
+        ),
+          
     ]
 
     outputs = [
-        desc.File(
-		name='orientationOut',
+        desc.File( #output: new orientation file; this arguments allows the output to appear in the node in Meshroom (and makes links possible between two nodes)
+		name='orientationOut', #for each output in a node, we have to set an input (for the name of the input) and an output (to make links between nodes)
 		label='Output Orientation',
 		description="Orientation out",
 		value="{OutValue}",
@@ -76,78 +79,3 @@ class ChgSysCo(node.MicmacNode):
  	),
     ]
 
-# class ChgSysCo(node.MicmacNode):
-#     commandLine = 'mm3d ChgSysCo {imagePatternValue} {orientationInValue} {chgsysValue} {OutValue}' # {allParams}'
-#     documentation = 'ChangeSystemCoordinate'
-
-#     inputs = [
-#         desc.File(
-#             name='projectDirectory',
-#             label='Project Directory',
-#             description='Project Directory.',
-#             value="",
-#             group='', # required to execute mm3d command line
-#             uid=[0],
-#         ),
-#         desc.File(
-#             name='imagePattern',
-#             label='Image Pattern',
-#             description='Image Pattern.',
-#             group='', # unnamed parameter
-#             value="",
-#             uid=[0],
-#         ),
-#         desc.File(
-#             name='orientationIn',
-#             label='Input Orientation',
-#             description="Input Orientation.",
-#             group='unnamedParams',
-#             uid=[0],
-#             value="",
-#         ),
-#         desc.File(
-#             name='chsys', #nom de l'objet attribut #je ne sais pas encore si on va en avoir besoin
-#             label='Change System File', #label sur l'interface
-#             description='Fichier de changement de coordonnees',
-#             group='unnamedParams',
-#             uid=[0],
-#             value="", #value vide mais pq par défaut met un nom de dossier
-#         ),
-        
-#         desc.StringParam(
-#             name='Out',
-#             label='Output Name',
-#             description="Directory of Output Orientation",
-#             group='unnamedParams',
-#             value="",
-#             uid=[0],
-#         ),
-#         # desc.BoolParam(
-#         #     name='FR',
-#         #     label='FR',
-#         #     description="FR",
-#         #     uid=[0],
-#         #     value=True,
-#         #     advanced=True,
-#         # ),
-        
-#       #  desc.StringParam(
-#       #      name='ForceSol',
-#       #      label='Force Sol',
-#       #      description="To Force Sol from existing solution (xml file)",
-#       #      uid=[0],
-#       #      value="",
-#       #      advanced=True,
-#       #  ),
-#     ]
-    
-#     outputs = [
-#         desc.File(
-#             name='orientationOut',
-#     		label='Output Orientation',
-#     		description="Orientation out",
-#     		value="{OutValue}",
-#             group='', # not a command line parameter
-#             uid=[],
-#         ),
-#     ]
