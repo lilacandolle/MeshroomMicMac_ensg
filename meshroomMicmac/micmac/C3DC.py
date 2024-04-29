@@ -49,7 +49,7 @@ class C3DC(node.MicmacNode):
             exclusive=True,
             uid=[0],
         ),
-        desc.StringParam(
+        desc.File(
             name='Masq3D',
             label='Masq 3D',
             description='3D masq for point selection.',
