@@ -179,12 +179,7 @@ class SaisieMasqQT(node.MicmacNode):
 
     @classmethod
     def update(cls, node):
-        
-        if '.' in node.filePath.value and node.Name.value !="":
-            node.nameoutputFile.value = node.filePath.value.split(".")[0].replace('"', '') + node.Attr.value+"_selectionInfo.xml"
-
-        else :
-            node.nameoutputFile.value = str(node.Name.value)+"_selectionInfo.xml"
+        node.nameoutputFile.value = str(node.Name.value)+"_selectionInfo.xml"
         
 
   #-----------modification-------------
