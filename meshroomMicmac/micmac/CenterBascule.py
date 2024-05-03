@@ -49,23 +49,26 @@ class CenterBascule(node.MicmacNode):
             value="",
         ),
         
-        desc.StringParam(
-            name='Out',
-            label='Output Name',
-            description="Directory of Output Orientation",
-            group='unnamedParams',
-            value="",
+        desc.BoolParam(
+            name='setL1',
+            label='Set L1',
+            description="Set L1",
             uid=[0],
+            value=False,
+            group='',
+            advanced=True,
         ),
         
         desc.BoolParam(
             name='L1',
             label='L1',
             description="L1 minimisation vs L2",
+            enabled=lambda node: node.setL1.value,
             uid=[0],
             value=False,
             advanced=True,
         ),
+               
         
         desc.BoolParam(
             name='CalcV',
@@ -73,15 +76,36 @@ class CenterBascule(node.MicmacNode):
             description="Compute Speed",
             uid=[0],
             value=False,
+
         ),
+        
+        desc.BoolParam(
+            name='setForceVert',
+            label='Set Force Vert',
+            description="Set Force Vert",
+            uid=[0],
+            value=False,
+            group='',
+            advanced=True,
+        ), 
+        
         desc.FloatParam(
             name='ForceVert',
             label='Force Vert',
             description="Weight for forcing Axe of camera to vertical",
+            enabled=lambda node: node.setForceVert.value,
             uid=[0],
             value=0.0,
             range=(-float('inf'), float('inf'), 0.01),
             advanced=True,
+        ),
+        desc.StringParam(
+            name='Out',
+            label='Output Name',
+            description="Directory of Output Orientation",
+            group='unnamedParams',
+            value="",
+            uid=[0],
         ),
     ]
 
