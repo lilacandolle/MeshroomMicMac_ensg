@@ -49,7 +49,8 @@ class Tapas(node.MicmacNode):
             uid=[0],
             value="",
         ),
-          #-----------modification-------------
+        
+          ####modification####
         desc.BoolParam(
             name='setFocs',
             label='set Focs',
@@ -87,8 +88,7 @@ class Tapas(node.MicmacNode):
             uid=[0],
             ),
         ]),
-        
-#-----------modification-------------
+        ####modification####
 
         
         desc.File(
