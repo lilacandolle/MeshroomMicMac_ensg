@@ -98,6 +98,7 @@ class SaisieMasqQT(node.MicmacNode):
             advanced=True,
         ),
         
+         ####modification####
         desc.StringParam(
             name='nameoutputFile',
             label='Output File',
@@ -126,4 +127,5 @@ class SaisieMasqQT(node.MicmacNode):
     def update(cls, node):
         
         node.nameoutputFile.value = node.filePath.value.split(".")[0].replace('"', '')+"_selectionInfo.xml"
+     ####modification####
 
