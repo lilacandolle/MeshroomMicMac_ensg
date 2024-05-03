@@ -48,7 +48,8 @@ class CenterBascule(node.MicmacNode):
             uid=[0],
             value="",
         ),
-        
+	    
+        ####modif####
         desc.BoolParam(
             name='setL1',
             label='Set L1',
@@ -58,7 +59,8 @@ class CenterBascule(node.MicmacNode):
             group='',
             advanced=True,
         ),
-        
+         ####modif####
+	    
         desc.BoolParam(
             name='L1',
             label='L1',
@@ -78,7 +80,8 @@ class CenterBascule(node.MicmacNode):
             value=False,
 
         ),
-        
+	    
+        ####modif####
         desc.BoolParam(
             name='setForceVert',
             label='Set Force Vert',
@@ -88,7 +91,8 @@ class CenterBascule(node.MicmacNode):
             group='',
             advanced=True,
         ), 
-        
+        ####modif####
+	    
         desc.FloatParam(
             name='ForceVert',
             label='Force Vert',
