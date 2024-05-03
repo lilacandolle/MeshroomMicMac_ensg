@@ -651,7 +651,7 @@ class OriConvertV2(node.MicmacNode):
 
     outputs = [
         desc.File(
-            name='Targeted Orientation',
+            name='Targeted_Orientation',
             label='Ori_chgmt_sys', # Directory Postfix
             description='Ori_chgmt_sys',
             value="{targetedOrientationValue}",
