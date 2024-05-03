@@ -49,7 +49,6 @@ class CenterBascule(node.MicmacNode):
             value="",
         ),
 	    
-        ####modif####
         desc.BoolParam(
             name='setL1',
             label='Set L1',
@@ -59,7 +58,7 @@ class CenterBascule(node.MicmacNode):
             group='',
             advanced=True,
         ),
-         ####modif####
+        
 	    
         desc.BoolParam(
             name='L1',
