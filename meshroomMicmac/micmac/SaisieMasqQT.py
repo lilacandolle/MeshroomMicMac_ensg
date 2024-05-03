@@ -42,6 +42,50 @@ class SaisieMasqQT(node.MicmacNode):
             uid=[0],
             advanced=True,
         ),
+
+        ####modification####
+        desc.BoolParam(
+            name='setSzW',
+            label='Set Window Size',
+            description="Set name.",
+            uid=[0],
+            value=False,
+            group='',
+            advanced=True,
+        ),
+
+          
+          desc.GroupAttribute(
+            name='SzW',
+            label='Window Size',
+            description="set window size pixel",
+            brackets='[]',
+            joinChar=',',
+            advanced=True,
+            enabled=lambda node: node.setSzW.value,
+            groupDesc=[
+            desc.IntParam(
+                name="width",
+                label="Width",
+                description="width.",
+                value=900,
+                range=(0,7680, 1),
+                uid=[0],
+            ),  
+            
+            desc.IntParam(
+            name="height",
+            label="Height",
+            description="height.",
+            value=600,
+            range=(0, 4320 , 1),
+            uid=[0],
+            ),
+        ]),
+          ####modification####
+
+
+        
         desc.BoolParam(
             name='setName',
             label='Set Name',
