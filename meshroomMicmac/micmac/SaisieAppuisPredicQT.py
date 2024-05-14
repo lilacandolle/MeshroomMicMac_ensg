@@ -41,7 +41,7 @@ class SaisieAppuisPredicQT(node.MicmacNode):
             value="",
         ),
         desc.StringParam(
-            name='iMeaFile',
+            name='imageMeasurementsFile',
             label='Image Measurements File',
             description="Image Measurements File",
             uid=[],
@@ -105,6 +105,7 @@ class SaisieAppuisPredicQT(node.MicmacNode):
             value = False,
             uid = [0],
             advanced = True,
+            group = '',
         ),
         desc.FloatParam(
             name='WBlur',
@@ -133,6 +134,7 @@ class SaisieAppuisPredicQT(node.MicmacNode):
             value=True,
             uid=[0],
             advanced=True,
+            group = '',
         ),
         desc.StringParam(
             name='OriMode',
@@ -204,6 +206,24 @@ class SaisieAppuisPredicQT(node.MicmacNode):
             uid = [0],
             advanced = True,
         ),
+        desc.StringParam(
+            name='strImageMeasurements2D',
+            label='Image Measurements 2D',
+            description='Image Measurements 2D.',
+            value='',
+            uid=[0],
+            advanced=True,
+            group = '',
+        ),
+        desc.StringParam(
+            name='strImageMeasurements3D',
+            label='Image Measurements 3D',
+            description='Image Measurements 3D.',
+            value='',
+            uid=[0],
+            advanced=True,
+            group = '',
+        ),
     ]
 
     outputs = [
@@ -212,7 +232,7 @@ class SaisieAppuisPredicQT(node.MicmacNode):
             label='imageMeasurements2D',
             description="Image Measurements 2D file.",
             uid=[],
-            value= "",
+            value= "{strImageMeasurements2DValue}",
             group = '',
         ),
         desc.File(
@@ -220,7 +240,24 @@ class SaisieAppuisPredicQT(node.MicmacNode):
             label='imageMeasurements3D',
             description="Image Measurements 3D file.",
             uid=[],
-            value="{imageMeasurementsFileValue}"[:-4] + "-S3D.xml",
+            value= "{strImageMeasurements3DValue}",
             group = '',
         ),
     ]
+
+    @classmethod
+    # méthode permettant de mettre à jour les valeurs de certains attributs pour construire les noms de fichiers créés à partir de noms d'inputs
+    def update(cls, node):
+            # vérifie que le noeud est bien une instance de la classe
+        if not isinstance(node.nodeDesc, cls):
+            raise ValueError("Node {} is not an instance of type {}".format(node, cls))
+
+        nom = node.imageMeasurementsFile.value
+
+        chaine=nom[:-4] # on enlève l'extension .xml en enlevant les 4 derniers caractères
+        
+        # on met à jour les valeurs des attributs strImageMeasurements2D et strImageMeasurements3D
+        node.strImageMeasurements2D.value = str(chaine)+ "-S2D.xml"
+        print ( node.strImageMeasurements2D.value)
+        node.strImageMeasurements3D.value =  str(chaine) + "-S3D.xml"
+        print ( node.strImageMeasurements3D.value)
