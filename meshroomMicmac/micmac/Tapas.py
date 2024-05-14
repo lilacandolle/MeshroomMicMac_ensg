@@ -51,6 +51,7 @@ class Tapas(node.MicmacNode):
         ),
         
           ####modification####
+        # Parameter for setting Focs
         desc.BoolParam(
             name='setFocs',
             label='set Focs',
@@ -60,7 +61,7 @@ class Tapas(node.MicmacNode):
             group='',
             advanced=True,
         ),
-        
+        # Group attribute for specifying Focs range
          desc.GroupAttribute(
             name='Focs',
             label='Focs',
@@ -70,24 +71,25 @@ class Tapas(node.MicmacNode):
             joinChar=',',
             advanced=True,
             groupDesc=[
-            desc.IntParam(
-                name="min",
-                label="Min",
-                description="min.",
-                value=20,
-                range=(0, 5200, 1),
-                uid=[0],
-            ),  
-            
-            desc.IntParam(
-            name="max",
-            label="Max",
-            description="max.",
-            value=30,
-            range=(0, 5200, 1),
-            uid=[0],
-            ),
-        ]),
+                 # Parameter for minimum focal length
+                desc.IntParam(
+                    name="min",
+                    label="Min",
+                    description="min.",
+                    value=20,
+                    range=(0, 5200, 1),
+                    uid=[0],
+                ),  
+                # Parameter for maximum focal length
+                desc.IntParam(
+                    name="max",
+                    label="Max",
+                    description="max.",
+                    value=30,
+                    range=(0, 5200, 1),
+                    uid=[0],
+                ),
+            ]),
         ####modification####
 
         

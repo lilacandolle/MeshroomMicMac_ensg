@@ -43,7 +43,10 @@ class SaisieMasqQT(node.MicmacNode):
             advanced=True,
         ),
 
+
+        
         ####modification####
+        # Parameter for setting window size
         desc.BoolParam(
             name='setSzW',
             label='Set Window Size',
@@ -53,9 +56,9 @@ class SaisieMasqQT(node.MicmacNode):
             group='',
             advanced=True,
         ),
-
-          
-          desc.GroupAttribute(
+        
+        # Group attribute for specifying window size
+        desc.GroupAttribute(
             name='SzW',
             label='Window Size',
             description="set window size pixel",
@@ -64,26 +67,26 @@ class SaisieMasqQT(node.MicmacNode):
             advanced=True,
             enabled=lambda node: node.setSzW.value,
             groupDesc=[
-            desc.IntParam(
-                name="width",
-                label="Width",
-                description="width.",
-                value=900,
-                range=(0,7680, 1),
-                uid=[0],
-            ),  
-            
-            desc.IntParam(
-            name="height",
-            label="Height",
-            description="height.",
-            value=600,
-            range=(0, 4320 , 1),
-            uid=[0],
-            ),
-        ]),
-          ####modification####
-
+                # Parameter for width
+                desc.IntParam(
+                    name="width",
+                    label="Width",
+                    description="width.",
+                    value=900,
+                    range=(0, 7680, 1),
+                    uid=[0],
+                ),  
+                # Parameter for height
+                desc.IntParam(
+                    name="height",
+                    label="Height",
+                    description="height.",
+                    value=600,
+                    range=(0, 4320, 1),
+                    uid=[0],
+                ),
+            ]),
+        ####modification####
 
         
         desc.BoolParam(
@@ -143,6 +146,7 @@ class SaisieMasqQT(node.MicmacNode):
         ),
         
          ####modification####
+       # Parameter for output file path
         desc.StringParam(
             name='nameoutputFile',
             label='Output File',
@@ -150,10 +154,10 @@ class SaisieMasqQT(node.MicmacNode):
             value= "",
             group='', # unnamed parameter
             uid=[0],
-               
         ),
     ]
 
+    # Define the outputs of the node
     outputs = [
         desc.File(
             name='outputFile',
@@ -166,10 +170,10 @@ class SaisieMasqQT(node.MicmacNode):
     ]
     
     
-    
+    # Method to update parameter values
     @classmethod
     def update(cls, node):
-        
+         # Set the value of 'nameoutputFile' parameter
         node.nameoutputFile.value = node.filePath.value.split(".")[0].replace('"', '')+"_selectionInfo.xml"
      ####modification####
 
