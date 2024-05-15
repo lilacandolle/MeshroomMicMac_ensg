@@ -1,0 +1,19 @@
+Listes de commandes ajoutées/ modifiées par rapport à la première version de MicmacRoom 
+
+*Ajout de nouvelles commandes: 
+
+	- OriConvert (nom du fichier python: OriConvertV2.py; version de la commande avec l'ensemble des paramètres, contrairement à OriConvert.py où seul certains agruments sont implémentées) 
+	- CenterBascule 
+	- ChgSysCo 
+	- GCPCtrl (nom du fichier python: GCPCtrl_V3, version la plus stable de la commande; il existe seulement un petit prooblème d'affichage, le nom du noeud ne s'affiche pas dans Meshroom, mais fonctionne tout de même)
+	- crea_sous_dossier: commande qui utilise la commande micmac testRegEx et qui permet de déplacer les images d'un fichier à un autre
+	- SaisieAppuisInitQT
+	- SaisieAppuisePredicQT
+	- GrShade
+
+
+*Modification de commandes déjà implémentées: 
+
+	- Campari: ajout d'un argument "GCP" qui est un vecteur de string (argument qui n'arrive pas à se générer automatiquement avec addMicMacNode.py)
+	- Tapas: ajout d'un argument "Foc", argument qui permet de donner une plage de focale sur un ensemble de jeux de données
+	- SaisieMasqQT: ajout d'une méthode pour concaténer deux strings; ajout de plusieurs arguments (les ajouts sont à chaque fois signaler dans les fichiers python)
