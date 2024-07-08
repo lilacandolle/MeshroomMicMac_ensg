@@ -7,7 +7,7 @@ Listes de commandes ajoutées/ modifiées par rapport à la première version de
 	- ChgSysCo 
 	- GCPCtrl (nom du fichier python: GCPCtrl_V3, version la plus stable de la commande; il existe seulement un petit prooblème d'affichage, le nom du noeud ne s'affiche pas dans Meshroom, mais fonctionne tout de même)
 	- crea_sous_dossier: commande qui utilise la commande micmac testRegEx et qui permet de déplacer les images d'un fichier à un autre
-	- SaisieAppuisInitQT
+	- SaisieAppuisInitQT (non livré, en cours de ré-implémentation)
 	- SaisieAppuisePredicQT
 	- GrShade
 
